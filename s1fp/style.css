@@ -1,0 +1,12 @@
+body{
+    background-color: pink;
+    color: white;
+}
+
+#page1 {
+    background-color: aqua;
+}
+
+.smallimg {
+    width:200px;
+}
