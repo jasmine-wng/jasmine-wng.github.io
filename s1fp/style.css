@@ -1,12 +1,63 @@
 body{
     background-color: pink;
     color: white;
+
+    
 }
 
 #page1 {
     background-color: aqua;
 }
 
-.smallimg {
-    width:200px;
+.midimg {
+    width:1200px;
+}
+
+.cssgridwrapper {
+  display: grid;
+  grid-template-columns: 400px 400px 400px;
+}
+
+.cssgridwrapper div {
+  height: 800px;
+  border: 1px solid #000000;
+}
+
+.cssgridheading {
+    position: relative;
+  grid-column: 1 / span 3;
+  overflow: hidden;
+  text-align: center;
+  align-items: center;
+  height: 200px;
+}
+
+.cssgridimg {
+    position: relative;
+  grid-column: 1 / span 3;
+  overflow: hidden;
+}
+
+
+.cssgridimg img {
+    position: absolute;
+    top: -200px;
+    width: 100%;
+}
+
+#welcome{
+    grid-column: 0 / span 3;
+    height: 200px;
+  
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 45px;
+  color: transparent;
+  background: #339999;
+  background-clip: text;
+}
+
+.bar {
+    height: 100px;
 }
