@@ -1,0 +1,113 @@
+<head>
+  <title>Explore the Map</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <section id="map-screen">
+    <div class="map-container">
+      <div class="map-wrapper">
+        <img id="map-image" src="blue_spring_map.png">
+
+        <!-- Path 1 -->
+        <div class="hitbox footstep" style="left: 15%; top: 40%;">
+          <img src="footsteps.png" class="hitbox-icon">
+        </div>
+        <div class="hitbox footstep" style="left: 25%; top: 50%;">
+          <img src="footsteps.png" class="hitbox-icon">
+        </div>
+        <div class="hitbox footstep" style="left: 35%; top: 55%;">
+          <img src="footsteps.png" class="hitbox-icon">
+        </div>
+
+        <!-- Camera 1 -->
+        <a href="camera1.html" class="hitbox camera" style="left: 45%; top: 48%; display: none;">
+          <img src="camera.png" class="hitbox-icon camera-icon">
+        </a>
+
+        <!-- Path 2 -->
+        <div class="hitbox footstep" style="left: 55%; top: 45%; display: none;">
+          <img src="footsteps.png" class="hitbox-icon">
+        </div>
+        <div class="hitbox footstep" style="left: 62%; top: 50%; display: none;">
+          <img src="footsteps.png" class="hitbox-icon">
+        </div>
+
+        <!-- Camera 2 -->
+        <a href="camera2.html" class="hitbox camera" style="left: 70%; top: 45%; display: none;">
+          <img src="camera.png" class="hitbox-icon camera-icon">
+        </a>
+
+        <!-- Path 3 -->
+        <div class="hitbox footstep" style="left: 75%; top: 40%; display: none;">
+          <img src="footsteps.png" class="hitbox-icon">
+        </div>
+
+        <!-- Camera 3 -->
+        <a href="camera3.html" class="hitbox camera" style="left: 80%; top: 35%; display: none;">
+          <img src="camera.png" class="hitbox-icon camera-icon">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+
+    var footsteps = document.querySelectorAll('.hitbox.footstep');
+
+    var currentPath = 0;
+
+    footsteps.forEach(function (footstep) {
+      footstep.addEventListener('click', function () {
+        footstep.style.display = 'none';
+        checkAndShowCamera();
+      });
+    });
+
+    function checkAndShowCamera() {
+      var cameras = document.querySelectorAll('.hitbox.camera');
+
+      var visibleFootsteps = 0;
+      footsteps.forEach(function (footstep) {
+        if (footstep.style.display !== 'none') {
+          visibleFootsteps++;
+        }
+      });
+
+      if (visibleFootsteps === 0 && currentPath < 3) {
+        cameras[currentPath].style.display = 'block';
+      }
+    }
+
+    window.onload = function () {
+      if (document.referrer.includes('viewer1.html')) {
+        currentPath = 1;
+        var cameras = document.querySelectorAll('.hitbox.camera');
+        cameras[0].style.display = 'none';
+        footsteps[0].style.display = 'none';
+        footsteps[1].style.display = 'none';
+        footsteps[2].style.display = 'none';
+        footsteps[3].style.display = 'block';
+        footsteps[4].style.display = 'block';
+      }
+      if (document.referrer.includes('viewer2.html')) {
+        currentPath = 2;
+        var cameras = document.querySelectorAll('.hitbox.camera');
+        cameras[0].style.display = 'none';
+        cameras[1].style.display = 'none';
+        footsteps[0].style.display = 'none';
+        footsteps[1].style.display = 'none';
+        footsteps[2].style.display = 'none';
+        footsteps[3].style.display = 'none';
+        footsteps[4].style.display = 'none';
+        footsteps[5].style.display = 'block';
+      }
+      if (document.referrer.includes('viewer3.html')) {
+        currentPath = 3;
+        var cameras = document.querySelectorAll('.hitbox.camera');
+        cameras[0].style.display = 'none';
+        cameras[1].style.display = 'none';
+        cameras[2].style.display = 'none';
+      }
+    };
+  </script>

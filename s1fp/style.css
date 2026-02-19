@@ -1,63 +1,243 @@
-body{
-    background-color: pink;
-    color: white;
-
-    
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-#page1 {
-    background-color: aqua;
+body {
+  font-family: 'Montserrat', serif;
+  background-color: #1a3a2e;
+  color: white;
+  overflow: hidden;
 }
 
-.midimg {
-    width:1200px;
-}
-
+/* Welcome */
 .cssgridwrapper {
   display: grid;
-  grid-template-columns: 400px 400px 400px;
-}
-
-.cssgridwrapper div {
-  height: 800px;
-  border: 1px solid #000000;
+  grid-template-rows: auto 1fr auto;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to bottom, #2d5a47, #1a3a2e);
 }
 
 .cssgridheading {
-    position: relative;
-  grid-column: 1 / span 3;
-  overflow: hidden;
+  grid-row: 1;
   text-align: center;
-  align-items: center;
-  height: 200px;
+  padding: 3rem 2rem;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+#welcometext {
+  font-size: 2rem;
+  font-weight: 700;
+  font-style: italic;
+  color: #a8dadc;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .cssgridimg {
-    position: relative;
-  grid-column: 1 / span 3;
+  grid-row: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
   overflow: hidden;
 }
 
-
-.cssgridimg img {
-    position: absolute;
-    top: -200px;
-    width: 100%;
+.midimg {
+  max-width: 90%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-#welcome{
-    grid-column: 0 / span 3;
-    height: 200px;
-  
-  font-family: "Playfair Display", serif;
-  font-weight: 700;
-  font-style: italic;
-  font-size: 45px;
-  color: transparent;
-  background: #339999;
-  background-clip: text;
+.button-container {
+  grid-row: 3;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 2rem 4rem;
 }
 
-.bar {
-    height: 100px;
+.explore-btn {
+  font-family: 'Montserrat', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 1rem 2.5rem;
+  background: #457b9d;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
 }
+
+.explore-btn:hover {
+  background: #1d3557;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Map */
+.map-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1a3a2e;
+}
+
+.map-wrapper {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 95vw;
+  max-height: 95vh;
+}
+
+#map-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 5px;
+}
+
+.hitbox {
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 10;
+}
+
+.hitbox:hover {
+  transform: scale(1.2);
+}
+
+.hitbox-icon {
+  width: 50px;
+  height: 50px;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.5));
+}
+
+.camera-icon {
+  width: 50px;
+  height: 50px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Camera */
+.camera-interface {
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+}
+
+.camera-header {
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.camera-btn {
+  font-family: 'Montserrat', serif;
+  font-size: 1rem;
+  padding: 0.8rem 2rem;
+  background:#e7e3dc;
+  color: #d9c3a1;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.camera-btn:hover {
+  transform: scale(1.1);
+}
+
+.viewfinder {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: #1a1a1a;
+}
+
+#viewfinder-image {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border: 3px solid #333;
+  transition: filter 0.5s ease;
+}
+
+.blurred {
+  filter: blur(15px) brightness(0.8);
+}
+
+/* Photo Viewer */
+.photo-viewer {
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(rgb(57, 54, 54), rgba(0, 0, 0, 0.733));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.viewer-header h2 {
+  padding: 1rem;
+  font-size: 2rem;
+  color: #457b9d;
+  text-shadow: 2px 2px 4px rgba(74, 93, 111, 0.5);
+}
+
+.photo-display {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  max-height: 70vh;
+}
+
+#captured-photo {
+  max-width: 90%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
