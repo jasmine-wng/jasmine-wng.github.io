@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  font-family: 'Work Sans', serif;
+  color: black;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  background: white;
+}
+
+input[type="checkbox"] { display: none; }
+
+.gridwrapper {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: 100vw;
+  height: 100vh;
+}
+
+.gridheading {
+  grid-row: 1;
+  text-align: center;
+  padding: 3rem 3rem;
+  font-size: calc(2rem - 2vw);
+}
+
+.gridmid {
+  grid-row: 2;
+  position: relative;
+  overflow: hidden;
+}
+
+.gridmid label {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  width: 20vw;
+  height: 15vw;
+  cursor: pointer;
+  transform-origin: center center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gridmid label img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+  pointer-events: none;
+}
+
+.gridmid label:nth-of-type(1) { transform: translate(-120%, -60%) rotate(-8deg); }
+.gridmid label:nth-of-type(2) { transform: translate(-50%, -50%) rotate(3deg); }
+.gridmid label:nth-of-type(3) { transform: translate(20%, -55%) rotate(-4deg); }
+.gridmid label:nth-of-type(4) { transform: translate(-90%, 10%) rotate(6deg); }
+.gridmid label:nth-of-type(5) { transform: translate(0%, 5%) rotate(-10deg); }
+.gridmid label:nth-of-type(6) { transform: translate(-30%, 15%) rotate(5deg); }
+.gridmid label:nth-of-type(7) { transform: translate(-110%, -20%) rotate(-15deg); }
+
+.gridmid label:hover {
+  transform: translate(-50%, -50%) scale(2) rotate(0deg) !important;
+  z-index: 10;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+}
+
+.hint {
+  grid-row: 3;
+  text-align: center;
+  padding: 1rem;
+  opacity: 0.4;
+  font-size: calc(1rem - 0.2vw);
+}
+
+#p1:checked ~ .gridwrapper {
+  background:
+    radial-gradient(ellipse 90% 70% at 40% 45%, rgba(126,200,227,0.35), transparent 70%),
+    radial-gradient(ellipse 70% 90% at 62% 58%, rgba(193,168,125,0.3),  transparent 70%),
+    radial-gradient(ellipse 60% 60% at 52% 35%, rgba(74,124,89,0.25),   transparent 70%);
+}
+
+#p2:checked ~ .gridwrapper {
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 50%, rgba(245,230,200,0.35), transparent 70%),
+    radial-gradient(ellipse 70% 80% at 65% 40%, rgba(176,196,222,0.3),  transparent 70%),
+    radial-gradient(ellipse 60% 60% at 38% 62%, rgba(232,180,184,0.25), transparent 70%);
+}
+
+#p3:checked ~ .gridwrapper {
+  background:
+    radial-gradient(ellipse 90% 70% at 45% 55%, rgba(212,184,150,0.35), transparent 70%),
+    radial-gradient(ellipse 70% 80% at 60% 38%, rgba(168,197,218,0.3),  transparent 70%),
+    radial-gradient(ellipse 60% 60% at 35% 45%, rgba(232,213,192,0.25), transparent 70%);
+}
+
+#p4:checked ~ .gridwrapper {
+  background:
+    radial-gradient(ellipse 90% 70% at 55% 45%, rgba(109,181,200,0.35), transparent 70%),
+    radial-gradient(ellipse 70% 80% at 38% 58%, rgba(232,201,122,0.3),  transparent 70%),
+    radial-gradient(ellipse 60% 60% at 62% 62%, rgba(184,212,224,0.25), transparent 70%);
+}
+
+#p5:checked ~ .gridwrapper {
+  background:
+    radial-gradient(ellipse 90% 70% at 48% 48%, rgba(155,89,182,0.3),  transparent 70%),
+    radial-gradient(ellipse 70% 80% at 62% 40%, rgba(233,30,140,0.25), transparent 70%),
+    radial-gradient(ellipse 60% 60% at 35% 62%, rgba(72,201,176,0.2),  transparent 70%);
+}
+
+#p6:checked ~ .gridwrapper {
+  background:
+    radial-gradient(ellipse 90% 70% at 48% 50%, rgba(180,60,60,0.28),   transparent 70%),
+    radial-gradient(ellipse 70% 80% at 62% 38%, rgba(120,110,100,0.25), transparent 70%),
+    radial-gradient(ellipse 60% 60% at 35% 60%, rgba(200,195,190,0.2),  transparent 70%);
+}
+
+#p7:checked ~ .gridwrapper {
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 48%, rgba(230,80,140,0.28), transparent 70%),
+    radial-gradient(ellipse 70% 80% at 38% 40%, rgba(240,100,40,0.25), transparent 70%),
+    radial-gradient(ellipse 60% 60% at 64% 62%, rgba(80,160,80,0.2),   transparent 70%);
+}

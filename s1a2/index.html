@@ -1,0 +1,36 @@
+<head>
+    <title>memory lane</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<input type="checkbox" id="p1" name="photo" onclick="uncheckOthers(this)">
+<input type="checkbox" id="p2" name="photo" onclick="uncheckOthers(this)">
+<input type="checkbox" id="p3" name="photo" onclick="uncheckOthers(this)">
+<input type="checkbox" id="p4" name="photo" onclick="uncheckOthers(this)">
+<input type="checkbox" id="p5" name="photo" onclick="uncheckOthers(this)">
+<input type="checkbox" id="p6" name="photo" onclick="uncheckOthers(this)">
+<input type="checkbox" id="p7" name="photo" onclick="uncheckOthers(this)">
+
+<div class="gridwrapper">
+    <div class="gridheading">a trip down memory lane</div>
+    <div class="gridmid">
+        <label for="p1"><img src="apt.JPG" alt="old home"></label>
+        <label for="p2"><img src="inside.JPG" alt="play pen"></label>
+        <label for="p3"><img src="beach.JPG" alt="beach pondering"></label>
+        <label for="p4"><img src="bro.JPG" alt="pensive brother"></label>
+        <label for="p5"><img src="bathroom.JPG" alt="portal"></label>
+        <label for="p6"><img src="menbro.png" alt="first boba ever"></label>
+        <label for="p7"><img src="benchflower.png" alt="mogging"></label>
+    </div>
+    <div class="hint">click a photo</div>
+</div>
+
+<script>
+    function uncheckOthers(el) {
+        document.querySelectorAll('input[name="photo"]').forEach(cb => {
+            if (cb !== el) cb.checked = false;
+        });
+    }
+</script>
+
+</body>
