@@ -24,7 +24,7 @@ input[type="checkbox"] { display: none; }
   grid-row: 1;
   text-align: center;
   padding: 3rem 3rem;
-  font-size: calc(20px - 0.05vw);
+  font-size: calc(20px - 0.5vw);
 }
 
 .gridmid {
@@ -36,7 +36,7 @@ input[type="checkbox"] { display: none; }
 .gridmid label {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 40%;
   width: 20vw;
   height: 15vw;
   cursor: pointer;
