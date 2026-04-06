@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debt</title>
+  <style>
+    body {
+      background-color: white;
+      font-family: Avenir, sans-serif;
+      text-align: center;
+      animation: fadein 1.5s ease-in-out;
+    }
+    @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+    img { width: 320px; margin-top: 80px; }
+    p { font-size: 1.2rem; margin-top: 30px; color: #333; }
+    button {
+      margin-top: 40px;
+      padding: 10px 30px;
+      font-family: Avenir, sans-serif;
+      font-size: 1rem;
+      background: white;
+      border: 1px solid #333;
+      cursor: pointer;
+    }
+    button:hover { background: #f0f0f0; }
+    #fade { position: fixed; inset: 0; background: white; opacity: 0; pointer-events: none; transition: opacity 1.2s; z-index: 99; }
+    #fade.in { opacity: 1; pointer-events: auto; }
+  </style>
+</head>
+<body>
+  <div id="fade"></div>
+  <img src="wallet.png" alt="empty wallet">
+  <p>Debt. Your wallet is empty.</p>
+  <br>
+  <button onclick="go()">continue</button>
+  <script>
+    function go() {
+      document.getElementById("fade").classList.add("in");
+      setTimeout(function() { window.location.href = "death.html"; }, 1300);
+    }
+  </script>
+</body>
+</html>

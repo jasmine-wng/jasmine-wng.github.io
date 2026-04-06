@@ -1,0 +1,56 @@
+<img src="https://i.imgur.com/7PKVpKe.png" id="logo">
+<h1>Welcome!</h1>
+<p>Choose your path:</p>
+<div class="choices">
+  <img src="https://dreieck.com/en/wp-content/uploads/sites/2/2023/03/opened-book-06-adding-another-outline-850x638.png" id="book">
+  <img src="https://media.istockphoto.com/id/1408433187/vector/hand-drawn-money-bag.jpg?s=612x612&w=0&k=20&c=MRJ6DpdxNgtQ05168CgoVxFgKperyBQqraxcNGa-KHo=" id="money">
+</div>
+<p id="result"></p>
+<div id="contract" style="display:none; margin-top:100px;">
+  <h2 id="pathTitle"></h2>
+  <p>AGREED TO AND ACCEPTED AS OF THE DATE WRITTEN BELOW:</p>
+  <label>Signature:</label><br>
+  <input type="text" id="name" placeholder="Enter your name"><br><br>
+  <label>Date:</label><br>
+  <input type="date" id="date"><br><br>
+  <button onclick="submitForm()">Submit</button>
+</div>
+<div id="confirmation"></div>
+
+<style>
+#logo { position: absolute; top: 15px; left: 15px; width: 100px; }
+body { text-align: center; font-family: Avenir; }
+.choices img { width: 200px; margin: 20px; cursor: pointer; }
+.choices img:hover { transform: scale(1.05); }
+#contract { margin-top: 120px; }
+input { padding: 8px; margin: 10px; }
+button { padding: 10px 20px; cursor: pointer; }
+</style>
+
+<script>
+let chosenPath = "";
+document.getElementById("book").onclick = function() {
+  chosenPath = "bookkeeper";
+  showContract("Bookkeeper Path Contract");
+};
+document.getElementById("money").onclick = function() {
+  chosenPath = "investment banker";
+  showContract("Investment Banker Job Contract");
+};
+function showContract(title) {
+  document.getElementById("contract").style.display = "block";
+  document.getElementById("pathTitle").innerText = title;
+  document.getElementById("contract").scrollIntoView({ behavior: "smooth" });
+  document.getElementById("date").valueAsDate = new Date();
+}
+function submitForm() {
+  const name = document.getElementById("name").value;
+  const date = document.getElementById("date").value;
+  if (name === "" || date === "") { alert("Please fill out both fields."); return; }
+  document.getElementById("confirmation").innerHTML = `<h2>Congratulations ${name}!</h2><p>You are thrilled to announce that you are a ${chosenPath} on ${date}.</p>`;
+  setTimeout(function() {
+    if (chosenPath === "bookkeeper") window.location.href = "bk1.html";
+    else window.location.href = "ib1.html";
+  }, 2000);
+}
+</script>

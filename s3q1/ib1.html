@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ib1.html</title>
+  <style>
+    body {
+      background-color: white;
+      font-family: Avenir, sans-serif;
+      overflow: hidden;
+      margin: 0;
+      animation: fadein 1.5s ease-in-out;
+    }
+    @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    #ground { position: absolute; bottom: 22%; left: 0; right: 0; height: 1px; background: rgba(0,0,0,0.12); }
+    #scene { position: absolute; left: 50%; bottom: 22%; transform: translateX(-50%); width: 320px; opacity: 0; transition: opacity 1s; }
+    #scene img { width: 100%; }
+    #character { position: absolute; bottom: 22%; left: -180px; width: 130px; transition: left 1.6s ease; }
+    #character.arrived { left: calc(50% - 260px); animation: bob 1.4s ease-in-out infinite; }
+    #character.gone    { left: calc(100% + 200px); animation: none; }
+    #overlay { position: absolute; inset: 0; background: rgba(255,255,255,0); pointer-events: none; transition: background 1.2s; }
+    #overlay.dim { background: rgba(255,255,255,0.85); }
+    #scenario-text { position: absolute; top: 6%; width: 100%; text-align: center; font-size: 1.2rem; letter-spacing: 0.04em; opacity: 0; }
+    #choices { position: absolute; bottom: 4%; left: 50%; transform: translateX(-50%); display: flex; gap: 3rem; opacity: 0; pointer-events: none; transition: opacity 0.8s; }
+    #choices.show { opacity: 1; pointer-events: auto; }
+    .coin-btn { width: 90px; height: 90px; border-radius: 50%; border: 2px solid rgba(0,0,0,0.3); background: white; font-family: Avenir, sans-serif; font-size: 0.9rem; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; transition: transform 0.2s, border-color 0.2s; }
+    .coin-btn:hover { transform: scale(1.08); border-color: black; }
+    .coin-btn img { width: 32px; }
+    #fade { position: fixed; inset: 0; background: white; opacity: 0; pointer-events: none; transition: opacity 1.2s; z-index: 99; }
+    #fade.in { opacity: 1; pointer-events: auto; }
+  </style>
+</head>
+<body>
+  <div id="fade"></div>
+  <div id="overlay"></div>
+  <div id="ground"></div>
+  <div id="scene"><img src="https://media.istockphoto.com/id/1408433187/vector/hand-drawn-money-bag.jpg?s=612x612&w=0&k=20&c=MRJ6DpdxNgtQ05168CgoVxFgKperyBQqraxcNGa-KHo=" alt="money bag"></div>
+  <img id="character" src="ib_stand.png" alt="character">
+  <div id="scenario-text"></div>
+  <div id="choices">
+    <button class="coin-btn" id="btn-heads"><img src="thumbs.svg" alt="thumbs up"><span>HEADS</span></button>
+    <button class="coin-btn" id="btn-tails"><img src="skull.png" alt="skull"><span>TAILS</span></button>
+  </div>
+  <script>
+    var TEXT  = "May the odds be in your favor, banker.";
+    var HEADS = "ib2.html";
+    var TAILS = "death.html";
+    var character = document.getElementById("character");
+    var scene     = document.getElementById("scene");
+    var textEl    = document.getElementById("scenario-text");
+    var choices   = document.getElementById("choices");
+    var overlay   = document.getElementById("overlay");
+    var fade      = document.getElementById("fade");
+    var ready     = false;
+    setTimeout(function() { character.classList.add("arrived"); }, 400);
+    setTimeout(function() { scene.style.opacity = "1"; }, 2000);
+    setTimeout(function() { textEl.style.opacity = "1"; typewrite(TEXT, textEl, 45); }, 2400);
+    setTimeout(function() { choices.classList.add("show"); ready = true; }, 2400 + TEXT.length * 45 + 400);
+    function typewrite(text, el, speed) {
+      el.textContent = ""; var i = 0;
+      var iv = setInterval(function() { el.textContent += text[i++]; if (i >= text.length) clearInterval(iv); }, speed);
+    }
+    function choose(href) {
+      if (!ready) return;
+      choices.style.opacity = "0"; scene.style.opacity = "0"; textEl.style.opacity = "0";
+      setTimeout(function() { overlay.classList.add("dim"); }, 200);
+      setTimeout(function() { character.style.transition = "left 1.2s ease"; character.classList.remove("arrived"); character.classList.add("gone"); }, 1200);
+      setTimeout(function() { fade.classList.add("in"); }, 2000);
+      setTimeout(function() { window.location.href = href; }, 3200);
+    }
+    document.getElementById("btn-heads").onclick = function() { choose(HEADS); };
+    document.getElementById("btn-tails").onclick = function() { choose(TAILS); };
+  </script>
+</body>
+</html>
