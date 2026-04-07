@@ -13,13 +13,12 @@
       animation: fadein 1.5s ease-in-out;
     }
     @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
     #ground { position: absolute; bottom: 22%; left: 0; right: 0; height: 1px; background: rgba(0,0,0,0.12); }
     #scene { position: absolute; left: 50%; bottom: 22%; transform: translateX(-50%); width: 320px; opacity: 0; transition: opacity 1s; }
     #scene img { width: 100%; }
     #character { position: absolute; bottom: 22%; left: -180px; width: 130px; transition: left 1.6s ease; }
-    #character.arrived { left: calc(50% - 260px); animation: bob 1.4s ease-in-out infinite; }
-    #character.gone    { left: calc(100% + 200px); animation: none; }
+    #character.arrived { left: calc(50% - 260px); }
+    #character.gone    { left: calc(100% + 200px); }
     #overlay { position: absolute; inset: 0; background: rgba(255,255,255,0); pointer-events: none; transition: background 1.2s; }
     #overlay.dim { background: rgba(255,255,255,0.85); }
     #scenario-text { position: absolute; top: 6%; width: 100%; text-align: center; font-size: 1.2rem; letter-spacing: 0.04em; opacity: 0; }
@@ -37,7 +36,7 @@
   <div id="overlay"></div>
   <div id="ground"></div>
   <div id="scene"><img src="https://media.istockphoto.com/id/1408433187/vector/hand-drawn-money-bag.jpg?s=612x612&w=0&k=20&c=MRJ6DpdxNgtQ05168CgoVxFgKperyBQqraxcNGa-KHo=" alt="money bag"></div>
-  <img id="character" src="ib_stand.png" alt="character">
+  <img id="character" src="ib_walk.gif" alt="character">
   <div id="scenario-text"></div>
   <div id="choices">
     <button class="coin-btn" id="btn-heads"><img src="thumbs.svg" alt="thumbs up"><span>HEADS</span></button>
