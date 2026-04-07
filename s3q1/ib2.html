@@ -17,7 +17,7 @@
     #scene { position: absolute; left: 50%; bottom: 22%; transform: translateX(-50%); width: 320px; opacity: 0; transition: opacity 1s; }
     #scene img { width: 100%; }
     #character { position: absolute; bottom: 22%; left: -180px; width: 130px; transition: left 1.6s ease; }
-    #character.arrived { left: calc(50% - 260px); }
+    #character.arrived { left: calc(50% - 220px); }
     #character.gone    { left: calc(100% + 200px); }
     #overlay { position: absolute; inset: 0; background: rgba(255,255,255,0); pointer-events: none; transition: background 1.2s; }
     #overlay.dim { background: rgba(255,255,255,0.85); }
@@ -26,7 +26,7 @@
     #choices.show { opacity: 1; pointer-events: auto; }
     .coin-btn { width: 90px; height: 90px; border-radius: 50%; border: 2px solid rgba(0,0,0,0.3); background: white; font-family: Avenir, sans-serif; font-size: 0.9rem; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; transition: transform 0.2s, border-color 0.2s; }
     .coin-btn:hover { transform: scale(1.08); border-color: black; }
-    .coin-btn img { width: 32px; }
+    .coin-btn img { width: 48px; }
     #fade { position: fixed; inset: 0; background: white; opacity: 0; pointer-events: none; transition: opacity 1.2s; z-index: 99; }
     #fade.in { opacity: 1; pointer-events: auto; }
   </style>
@@ -39,8 +39,8 @@
   <img id="character" src="ib_walk.gif" alt="character">
   <div id="scenario-text"></div>
   <div id="choices">
-    <button class="coin-btn" id="btn-heads"><img src="thumbs.svg" alt="thumbs up"><span>HEADS</span></button>
-    <button class="coin-btn" id="btn-tails"><img src="skull.png" alt="skull"><span>TAILS</span></button>
+    <button class="coin-btn" id="btn-heads"><img src="thumbs.svg" alt="thumbs up" style="width:38px"><span>HEADS</span></button>
+    <button class="coin-btn" id="btn-tails"><img src="skull.png" alt="skull" style="width:56px"><span>TAILS</span></button>
   </div>
   <script>
     var TEXT  = "You get promoted to manager.";
