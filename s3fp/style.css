@@ -44,7 +44,7 @@ footer {
 }
 
 footer p {
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.12em;
   color: #b0a898;
   font-style: italic;
@@ -59,7 +59,7 @@ footer p {
   display: grid;
   gap: 0px;
   padding: 0px;
-  background: #e8e3d8;
+  color: #8a8070;
 }
 
 #grid.count-4 {
