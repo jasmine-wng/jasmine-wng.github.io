@@ -1,0 +1,101 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap');
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: #e8e3d8;
+  font-family: 'IM Fell English', Georgia, serif;
+  overflow: hidden;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+}
+
+header .label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: lowercase;
+  color: #8a8070;
+  font-style: italic;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: auto;
+  z-index: 10;
+  padding: 14px 28px;
+  text-align: right;
+}
+
+footer p {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: #b0a898;
+  font-style: italic;
+}
+
+#grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  gap: 0px;
+  padding: 0px;
+  background: #e8e3d8;
+}
+
+#grid.count-4 {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+#grid.count-5 {
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+#grid.count-6 {
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+#grid.count-7 {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr;
+}
+#grid.count-8 {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr;
+}
+
+.tile {
+  position: relative;
+  overflow: hidden;
+  background: #f5f2ec;
+  cursor: default;
+}
+
+.tile.interactive {
+  cursor: none;
+}
+
+.tile canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
